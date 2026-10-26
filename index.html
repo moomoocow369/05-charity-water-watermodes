@@ -1,13 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Charity Water Game</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Water Modes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Welcome to the Charity Water Game Prototype</h1>
-    <script src="script.js"></script>
+  <header class="topbar">
+    <div class="brand">
+      <span class="drop" aria-hidden="true"></span>
+      Water Modes
+    </div>
+    <div class="sponsor">
+      in support of
+      <a href="https://www.charitywater.org" target="_blank" rel="noopener">charity: water</a>
+    </div>
+  </header>
+
+  <main>
+    <div id="game-wrap">
+      <canvas id="game" width="960" height="520" aria-label="Water Modes game"></canvas>
+
+      <div id="overlay" class="overlay">
+        <!-- Title screen -->
+        <section id="screen-title" class="panel title-panel">
+          <h1>Water <span>Modes</span></h1>
+          <p class="tagline">Master liquid, ice and steam to reach the flag.</p>
+          <button id="start-btn" class="btn">Start Game</button>
+          <p class="small">or press <kbd>Enter</kbd></p>
+          <p class="sponsor-line">
+            Presented in support of
+            <a href="https://www.charitywater.org" target="_blank" rel="noopener">charity: water</a>
+          </p>
+        </section>
+
+        <!-- Level complete -->
+        <section id="screen-complete" class="panel hidden">
+          <h2>Level Complete!</h2>
+          <p id="complete-stars" class="stars">★★★</p>
+          <p id="complete-details"></p>
+          <button id="next-btn" class="btn">Next Level</button>
+          <p class="small">or press <kbd>Enter</kbd></p>
+        </section>
+
+        <!-- Game over -->
+        <section id="screen-gameover" class="panel hidden">
+          <h2>Game Over</h2>
+          <p id="gameover-reason"></p>
+          <div class="btn-row">
+            <button id="retry-btn" class="btn">Try Again</button>
+            <button id="title-btn" class="btn btn-ghost">Title Screen</button>
+          </div>
+          <p class="small">press <kbd>R</kbd> to retry</p>
+        </section>
+
+        <!-- Win -->
+        <section id="screen-win" class="panel hidden">
+          <h2>You Win!</h2>
+          <p id="win-score"></p>
+          <p class="mission">
+            You mastered every mode of water. In real life, millions of people still
+            don't have clean water close to home. You can help change that.
+          </p>
+          <div class="btn-row">
+            <a class="btn" href="https://www.charitywater.org" target="_blank" rel="noopener">Learn More at charitywater.org</a>
+            <button id="replay-btn" class="btn btn-ghost">Play Again</button>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <section class="controls" aria-label="Controls">
+      <div class="control"><kbd>A</kbd><kbd>D</kbd> Move</div>
+      <div class="control"><kbd>W</kbd> Jump</div>
+      <div class="control"><kbd>1</kbd><kbd>2</kbd><kbd>3</kbd> Liquid / Ice / Steam</div>
+      <div class="control"><kbd>Space</kbd> Use water</div>
+      <div class="control"><kbd>S</kbd>+<kbd>Space</kbd> Ice bridge</div>
+      <div class="control"><kbd>R</kbd> Restart level</div>
+    </section>
+  </main>
+
+  <footer>
+    Every drop counts. Learn how clean water changes lives at
+    <a href="https://www.charitywater.org" target="_blank" rel="noopener">charitywater.org</a>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
